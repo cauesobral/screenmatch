@@ -1,0 +1,2 @@
+acho que consigo transformar isso em uma api funcional até o fim do programa
+- finalizar documentario e desenho, dps pensar na arquitetura e na regra de negócio

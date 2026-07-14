@@ -1,4 +1,4 @@
-package br.com.caue.modelos;
+package br.com.caue.model;
 
 public class Serie extends Titulo {
     private int temporadas;

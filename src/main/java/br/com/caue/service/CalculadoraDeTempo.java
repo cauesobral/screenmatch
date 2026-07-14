@@ -1,4 +1,6 @@
-package br.com.caue.modelos;
+package br.com.caue.service;
+
+import br.com.caue.model.Titulo;
 
 public class CalculadoraDeTempo {
     private int tempoTotal;
@@ -10,5 +12,5 @@ public class CalculadoraDeTempo {
     public void inclui(Titulo t) {
         tempoTotal += t.getDuracaoEmMinutos();
     }
-    
+
 }

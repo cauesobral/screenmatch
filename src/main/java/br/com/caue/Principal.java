@@ -1,27 +1,19 @@
 package br.com.caue;
 
-import br.com.caue.model.Favoritos;
-import br.com.caue.model.Musica;
-import br.com.caue.model.Podcast;
-import br.com.caue.model.Serie;
+import br.com.caue.model.*;
+
+import java.util.ArrayList;
 
 public class Principal {
     static void main(String[] args) {
-        Musica minhaMusica = new Musica();
-        minhaMusica.setTitulo("Saving Grace");
-        minhaMusica.setCantor("KIRBY");
+        ArrayList<Titulo> titulos = new ArrayList<>();
+        titulos.add(new Titulo("Vingadores", 2023));
+        titulos.add(new Titulo("Forest Gump", 1999));
+        titulos.add(new Titulo("High School Musical", 1993));
 
-        for (int i = 0; i < 50; i++) {
-            minhaMusica.curtir();
+        for (Titulo titulo : titulos) {
+            System.out.println(titulo);
+            System.out.println("Total de avaliações: "+titulo.getTotalDeAvaliacoes());
         }
-        Podcast meuPodcast = new Podcast();
-        meuPodcast.setHost("Igor 3K");
-        meuPodcast.setDescricao("Jogos");
-
-        Favoritos favoritos = new Favoritos();
-        favoritos.inclui(meuPodcast);
-        favoritos.inclui(minhaMusica);
-
-        
     }
 }

@@ -8,6 +8,16 @@ public class Titulo {
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
 
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    @Override
+    public String toString() {
+        return nome+" ("+anoDeLancamento+")";
+    }
+
     public String getNome() {
         return nome;
     }

@@ -1,6 +1,7 @@
 package br.com.caue;
 
 import br.com.caue.model.*;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.net.URI;
@@ -18,11 +19,7 @@ public class Principal {
         System.out.println("Digite o nome do filme para a busca: ");
         var filme = scanner.nextLine();
 
-        //Minha chave da api do ombdb
-        //ee6c8d00
-
-        System.out.println("Digite a sua apikey para a busca:");
-        var apikey = scanner.nextLine();
+        String apikey = "ee6c8d00";
 
         String endereco = "http://www.omdbapi.com/?t="+filme+"&apikey="+apikey;
 
@@ -32,7 +29,12 @@ public class Principal {
                 .build();
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-        System.out.println(response.statusCode());
+
+        String json = response.body();
+        System.out.println(json);
+
+        Gson gson = new Gson();
+        Titulo titulo = gson.fromJson(response.body(), Titulo.class);
+        System.out.println("Titulo: " + titulo.getNome());
     }
 }

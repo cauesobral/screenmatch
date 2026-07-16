@@ -1,7 +1,9 @@
 package br.com.caue;
 
 import br.com.caue.model.*;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.URI;
@@ -33,8 +35,14 @@ public class Principal {
         String json = response.body();
         System.out.println(json);
 
-        Gson gson = new Gson();
-        Titulo titulo = gson.fromJson(response.body(), Titulo.class);
-        System.out.println("Titulo: " + titulo.getNome());
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
+        TituloOmdb tituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        System.out.println("Titulo: " +tituloOmdb);
+
+        Titulo titulo = new Titulo(tituloOmdb);
+        System.out.println("Titulo: " +titulo);
+
     }
 }
